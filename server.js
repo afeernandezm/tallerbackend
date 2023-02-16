@@ -1,14 +1,14 @@
 require('dotenv').config();
-const path       = require('path');
-const cors       = require('cors');
-const express    = require('express');
-const mongoose   = require('mongoose');
-const apiRoutes  = require('./routes');
+const path = require('path');
+const cors = require('cors');
+const express = require('express');
+const mongoose = require('mongoose');
+const apiRoutes = require('./routes');
 
-const app    = express();
-const PORT   = process.env.PORT || 3000;
+const app = express();
+const PORT = process.env.PORT || 3000;
 const DB_URI = process.env.DB_URI;
-
+mongoose.set('strictQuery', true);
 
 // CONEXIÓN A BASE DE DATOS
 mongoose.connect(DB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
@@ -20,7 +20,7 @@ mongoose.connect(DB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
 app.use(cors());            // Soporte para CORS
 app.use(express.json());    // IMPORTANTE: Poner esto antes de las rutas
 app.use('/api', apiRoutes);
-app.use(express.static(path.join(__dirname , 'public')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // SERVIDOR WEB
 app.listen(PORT, () => console.log("Servidor iniciado..."));

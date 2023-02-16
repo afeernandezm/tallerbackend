@@ -11,7 +11,7 @@ router.delete("/clientes/:id", cors(), controller.deleteCliente);  // Delete
 router.put("/clientes/:id", cors(), controller.updateCliente);  // Update
 router.post("/clientes", cors(), controller.createCliente);  // Create
 
-router.get("/piezas", cors(), controller.readpiezas);  // Read All
+router.get("/piezas", cors(), controller.readPieza);  // Read All
 router.get("/piezas/:id", cors(), controller.readPieza);   // Read
 router.delete("/piezas/:id", cors(), controller.deletePieza); // Delete
 router.put("/piezas/:id", cors(), controller.updatePieza); // Update
