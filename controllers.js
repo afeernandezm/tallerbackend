@@ -46,7 +46,7 @@ exports.createCliente = (req, res) =>
 
 // ------ ARTÍCULOS
 
-exports.readPieza = (req, res) =>
+exports.readPiezas = (req, res) =>
     Pieza.find({}, (err, data) => {
         if (err) res.json({ error: err });
         else res.json(data);
